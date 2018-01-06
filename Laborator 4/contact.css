@@ -1,0 +1,18 @@
+.html {
+    text-align: center;
+}
+
+.contact {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.address, .phone, .aboutme {
+    text-align: center;
+}
+
+.address-title, .phone-title, .aboutme-title {
+   font-weight: bold;
+}

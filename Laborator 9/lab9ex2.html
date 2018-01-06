@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Creati un fisier CSS (conectati-l la document) cu stilurile necesare clasei list-item pentru a avea un text rosu. -->
+    <link rel="stylesheet" href="lab9ex2.css">
+    <title>Document</title>
+</head>
+<body id="body">
+    <h1>About Me</h1>
+        <ul id="ul">
+        <li>Nickname: <span id="nickname">nickname</span>
+        <li>Favorites:  <span id="favorites"></span>
+        <li>Hometown: <span id="hometown"></span>
+    </ul>
+    <!-- Creati un nou element <img> cu atributul src catre o imagine cu voi. Adaugati acel element in pagina. -->
+    <img src = "pingu.jpg" alt = "pingu" height="100" weight="100">
+</body>
+</html>
+
+<script>
+    // Scrimbati stilul din <body> astfel incat sa avem font-family: Arial, sans-serif.
+    document.getElementById("body").style.fontFamily = "Arial, sans-serif";
+    
+    // Inlocuiti ficare <span> (nickname, favorites, hometown) cu informatiile voastre.
+    function changeSpans(nickname, favorites, hometown)
+    {
+        span1 = document.getElementById("nickname");
+        span1.innerText = span1.textContent = nickname;
+        span2 = document.getElementById("favorites");
+        span2.innerText = span2.textContent = favorites;
+        span3 = document.getElementById("hometown");
+        span3.innerText = span3.textContent = hometown;
+    }
+
+    changeSpans('Mirela', 'programare, seriale, dormit', 'Braila');
+
+    // Iterati prin fiecare <li> si adaugati clasa list-item.
+    function iterateLi ()
+    {
+        var ul = document.getElementById("ul");
+        var items = ul.getElementsByTagName("li");
+        for (var i = 0; i < items.length; ++i) 
+        {
+            items[i].className += "list-item";
+        }       
+    }
+
+    iterateLi();
+
+
+
+ 
+</script>

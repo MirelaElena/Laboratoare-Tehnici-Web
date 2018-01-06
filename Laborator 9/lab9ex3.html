@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lab9ex3.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Creati un document HTML (filme.html) cu titlul "Filmele mele favorite:", folosind tag-ul <h1>. -->
+    <h1 id = "lista">Filmele mele favorite</h1>
+</body>
+</html>
+
+<!-- Creati un fisier JavaScript folosind <script> la sfarsitul documentului HTML. -->
+<script>
+    // Creati un vector cu obiecte care sa contina informatiile filmelor favorite. Obiectul trebuie sa includa titlu (string), durata (number),
+    // actori (array of strings) si o propietate de tip boolean care sa indice daca filmul a fost vizualizat sau nu.
+    var film1 = {titlu: 'Black swan',
+        durata: 160,
+        actori: ['Natalie', 'Portman'],
+        vazut : true
+    }
+
+    var film2 = {titlu: 'Murder on the orient express',
+        durata: 155,
+        actori: ['Paapa', 'Yassine'],
+        vazut : false
+    }
+
+    var filme = [];
+    filme.push(film1);
+    filme.push(film2);
+
+    // Iterati prin vector si creati dinamic in pagina elemente <p> care sa contina titlul filmului.
+    // var list = document.getElementById('lista');
+
+    // filme.forEach(function(film) {
+        
+    //     titlu = film.titlu;
+    //     var entry = document.createElement('p');
+    //     entry.appendChild(document.createTextNode(titlu));
+    //     list.appendChild(entry);
+    // })
+
+    // BONUS
+    // Folositi <ul> si <li> pentru a afisa filmele, alaturi de celelalte informatii despre acestea.
+    
+    filme.forEach(function(film) {
+
+        var ul = document.createElement('ul');
+        ul.setAttribute('id', 'Details of ' + film.titlu);
+        document.getElementById('lista').appendChild(ul);
+
+        for(property in film)
+        {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(film[property]));
+            ul.appendChild(li);
+        }
+        
+    })
+
+    // Adaugati in fiecare obiect din vector o proprietate reprezentand imaginea filmului si reflectati schimbarea in pagina.
+    var img = document.createElement("img");
+    img.src = "black.jpg";
+    var src = document.getElementById("Details of Black swan");
+    src.appendChild(img);
+    
+    var img2 = document.createElement("img");
+    img2.src = "murder.jpg";
+    var src2 = document.getElementById("Details of Murder on the orient express");
+    src2.appendChild(img2);
+    
+    // Adaugati proprietati CSS care sa diferentieze filmele vizualizate de cele nevizualizate din lista.
+    filme.forEach(function(film) {
+
+        var element = document.getElementById('Details of ' + film.titlu);
+        if(film.vazut == true)
+            element.classList.add("vazut");
+        else
+            element.classList.add("nevazut");
+
+    });
+
+
+</script>

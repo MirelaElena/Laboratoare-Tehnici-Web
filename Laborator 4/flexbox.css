@@ -1,0 +1,13 @@
+.images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.images > img {
+    display: flex; 
+    flex-basis: calc(33.33% - 14px); 
+    justify-content: space-between; 
+    flex-direction: column;
+  }

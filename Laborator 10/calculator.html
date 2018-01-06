@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label>1. Ridicare la patrat:
+        <!-- // BONUS -->
+        <!-- // Folositi evenimentul keypress pe unul dintre input-uri astfel incat utilizatorul sa nu fie nevoit sa dea click pe buton. -->
+        <input type="number" id="square-input" size="2">
+      </label>
+      <button id="square-button">Calculeaza</button>
+      <br><br>
+    
+      <label>2. Jumatate din numar:
+        <input type="number" id="half-input" size="2">
+      </label>
+      <button id="half-button">Calculeaza</button>
+      <br><br>
+    
+      <label>
+        3. Procent:
+        <input type="number" id="percent1-input" size="2">
+      </label>
+      <label>
+        Numar:
+        <input type="number" id="percent2-input" size="2">
+      </label>
+      <button id="percent-button">Calculeaza</button>
+      <br><br>
+    
+      <label>4. Aria unui cerc cu raza:
+        <input type="number" id="area-input" size="2">
+      </label>
+      <button id="area-button">Calculeaza</button>
+      <br><br>
+      <div id="solution"></div>
+</body>
+</html>
+
+<!-- Creati un fisier JavaScript folosind <script> la sfarsitul documentului HTML. -->
+<script>
+    // Adaugati evenimente pe butoane astfel incat de fiecare data cand sunt apasate sa cheme functiile de calcul.
+    // document.getElementById("square-button").addEventListener("click", showSquare);
+    document.getElementById("square-input").addEventListener("keypress", showSquare);
+    document.getElementById("half-button").addEventListener("click", showHalf);
+    document.getElementById("percent-button").addEventListener("click", showPercent);
+    document.getElementById("area-button").addEventListener("click", showArea);
+
+    // Creati functiile care returneaza rezultatele corecte pentru toate cazurile de mai sus.
+    function square() {
+        var number = document.getElementById("square-input").value;
+        var square = number * number;
+        return square;
+    }
+
+    function half() {
+        var number = document.getElementById("half-input").value;
+        var half = number/2;
+        return half;
+    }
+
+    function percent() {
+        var procent = document.getElementById("percent1-input").value;
+        var numar = document.getElementById("percent2-input").value;
+        var percent = procent/100*numar;
+        return percent;
+    }
+
+    function area() {
+        var raza = document.getElementById("area-input").value;
+        var area = Math.PI * raza * raza;
+        return area;
+    }
+
+    // Afisati rezultatele calculelor in tag-ul identificat prin id-ul solution
+    function showSquare()
+    {
+        document.getElementById("solution").innerHTML = square();
+    }
+
+    function showHalf()
+    {
+        document.getElementById("solution").innerHTML = half();
+    }
+
+    function showPercent()
+    {
+        document.getElementById("solution").innerHTML = percent();
+    }
+
+    function showArea()
+    {
+        document.getElementById("solution").innerHTML = area();
+    }
+    
+
+</script>
